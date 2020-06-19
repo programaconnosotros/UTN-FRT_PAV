@@ -18,6 +18,15 @@ namespace PavParcial2019
      */
     public class Problema2
     {
-        
+        public static void CalcularPrecioFinal(double? precio, double impuesto, out double? precioFinal)
+        {
+            if (precio == null) precioFinal = null;
+            else
+            {
+                var montoAdicional = precio * (impuesto/ 100);
+                precioFinal = precio + montoAdicional;
+
+            }
+        }
     }
 }
