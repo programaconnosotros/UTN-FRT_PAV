@@ -12,6 +12,14 @@ namespace PavParcial2019
      */
     public class Problema4
     {
-        
+        public static int EncontrarImpares(int[] valores)
+        {
+            int cantidadImpares = 0;
+            foreach(int numero in valores)
+            {
+                if (numero % 2 != 0) cantidadImpares++;
+            }
+            return cantidadImpares;
+        }
     }
 }
