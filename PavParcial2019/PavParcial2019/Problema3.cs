@@ -19,6 +19,42 @@ namespace PavParcial2019
      */
     public class Problema3
     {
-        
+        public static string CalcularYMostrar(string numero1, string numero2, string operador, ref decimal resultado)
+        {
+            var a = Convert.ToDecimal(numero1);
+            var b = Convert.ToDecimal(numero2);
+
+            switch (operador)
+            {
+                case "+":
+                    resultado = a + b;
+                    break;
+
+                case "-":
+                    resultado = a - b;
+                    break;
+                
+                case "/":
+                    try
+                    {
+                        resultado = a / b;
+                    }
+                    catch(Exception e)
+                    {
+                        return "Operacion no valida";
+                    }
+                    break;
+                
+                case "*":
+                    resultado = a * b;
+                    break;
+
+                default:
+                    return "Operacion no valida";
+                    break;
+            }
+
+            return $"{numero1}{operador}{numero2}={resultado}";
+        }
     }
 }
