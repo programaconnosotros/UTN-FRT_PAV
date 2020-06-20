@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PavParcial2019
 {
@@ -24,7 +25,7 @@ namespace PavParcial2019
 
         public Flota(IEnumerable<Transporte> transportes)
         {
-            
+            Lista = transportes.ToList();
         }
 
         //Este método no se puede modificar
@@ -34,7 +35,7 @@ namespace PavParcial2019
         }
     }
 
-    public class Transporte
+    public class Transporte : IComparable<Transporte>
     {
         public Transporte(Tipo tipo, int antiguedad)
         {
@@ -42,8 +43,18 @@ namespace PavParcial2019
             Antiguedad = antiguedad;
         }
 
+        
+
         public Tipo Tipo { get; set; }
         public int Antiguedad { get; set; }
+
+        public int CompareTo(Transporte other)
+        {
+            if (this.Tipo.CompareTo(other.Tipo) == 0)
+                return this.Antiguedad.CompareTo(other.Antiguedad);
+
+            return this.Tipo.CompareTo(other.Tipo);
+        }
     }
 
     public enum Tipo
