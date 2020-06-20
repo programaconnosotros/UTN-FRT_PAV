@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace PavParcial2019
 {
@@ -22,8 +24,37 @@ namespace PavParcial2019
      * -La clase Empleado debe tener un constructor que reciba tres parámetros, uno por cada propiedad
      * Tiempo estimado: 15m
      */
-     public class Problema5
+    public class Empleado
     {
+        public String Nombre { get; set; }
+        public int Legajo { get; set; }
+        public double Sueldo { get; set; }
 
+        public Empleado(String nombre, int legajo, double sueldo)
+        {
+            Nombre = nombre;
+            Legajo = legajo;
+            Sueldo = sueldo;
+        }
+
+    }
+
+    public class Problema5
+    {
+        public static double[] Evaluador(System.Collections.Generic.IEnumerable<Empleado> lista)
+        {
+            if(lista == null)
+            {
+                return null;
+            }
+
+            List<double> resultados = new List<double>();
+            resultados.Add(lista.Max(e => e.Sueldo));
+            resultados.Add(lista.Min(e => e.Sueldo));
+            resultados.Add(lista.Average(e => e.Sueldo));
+            resultados.Add(lista.Sum(e => e.Sueldo));
+
+            return resultados.ToArray();
+        }
     }
 }
