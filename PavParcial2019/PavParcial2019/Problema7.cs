@@ -25,7 +25,16 @@ namespace PavParcial2019
 
         public Flota(IEnumerable<Transporte> transportes)
         {
-            Lista = transportes.ToList();
+            if(transportes == null)
+            {
+                Lista = new List<Transporte>();
+                
+            }
+            else
+            {
+                Lista = transportes.ToList();
+            }
+           
         }
 
         //Este método no se puede modificar
@@ -41,19 +50,28 @@ namespace PavParcial2019
         {
             Tipo = tipo;
             Antiguedad = antiguedad;
-        }
-
-        
+        }        
 
         public Tipo Tipo { get; set; }
         public int Antiguedad { get; set; }
 
         public int CompareTo(Transporte other)
         {
-            if (this.Tipo.CompareTo(other.Tipo) == 0)
-                return this.Antiguedad.CompareTo(other.Antiguedad);
-
-            return this.Tipo.CompareTo(other.Tipo);
+            if (other == null)
+            {
+                return 1;
+            }
+            var comparadorTipo = this.Tipo.ToString().CompareTo(other.Tipo.ToString());
+            var comparadorAntiguedad = this.Antiguedad.CompareTo(other.Antiguedad);
+            
+            if (comparadorTipo == 0)
+            {
+                return comparadorAntiguedad;
+            }
+            else
+            {
+                return comparadorTipo ;
+            }
         }
     }
 

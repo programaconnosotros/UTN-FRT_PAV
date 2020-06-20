@@ -19,17 +19,25 @@ namespace PavParcial2019
 
     public class Operacion
     {
+        //Define el delegado
+
         public delegate void OperacionDelegado(ref int numero);
+        //Crear el delegado
+        OperacionDelegado calculadora;
 
         public Operacion(Suma suma, 
             Resta resta, 
             Multiplicacion multiplicacion)
         {
-        
+            calculadora += suma.Operar;            
+            calculadora += resta.Operar;
+            calculadora += multiplicacion.Operar;
+
         }
 
         public int Ejecutar(int valor)
         {
+            calculadora(ref valor);
             return valor;
         }
     }
@@ -42,6 +50,7 @@ namespace PavParcial2019
         {
             ValorAOperar = valorAOperar;
         }
+        public abstract void Operar(ref int numero);
     }
 
     public class Suma: Operador
@@ -49,6 +58,11 @@ namespace PavParcial2019
         public Suma(int n):base(n)
         {
             
+        }
+
+        public override void Operar(ref int numero)
+        {
+            numero += ValorAOperar;
         }
     }
 
@@ -58,6 +72,11 @@ namespace PavParcial2019
         {
 
         }
+
+        public override void Operar(ref int numero)
+        {
+            numero -= ValorAOperar;
+        }
     }
 
     public class Multiplicacion: Operador
@@ -65,6 +84,11 @@ namespace PavParcial2019
         public Multiplicacion(int n) : base(n)
         {
 
+        }
+
+        public override void Operar(ref int numero)
+        {
+            numero *= ValorAOperar;
         }
     }
 }
