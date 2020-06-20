@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace PavParcial2019
 {
@@ -15,4 +16,39 @@ namespace PavParcial2019
      * Si la pila se encuentra vacía se debe retornar el valor por defecto correspondiente al tipo.
      * Tiempo estimado: 15m
      */
+
+    public class Pila<Etiqueta>{
+
+        public Stack<Etiqueta> Stack{ get; set; }
+
+        public Pila()
+        {
+            this.Stack = new Stack<Etiqueta>();
+        }
+
+        public void Apilar(Etiqueta objeto)
+        {
+            Stack.Push(objeto);
+        }
+        public void Apilar(Etiqueta[] objetos)
+        {
+            foreach (Etiqueta objeto in objetos) Stack.Push(objeto);
+        }
+        public Etiqueta Retirar()
+        {
+            try
+            {
+                return Stack.Pop();
+            }
+            catch(Exception e)
+            {
+                return default(Etiqueta);
+            }
+            
+        }
+
+
+
+    }
+
 }
