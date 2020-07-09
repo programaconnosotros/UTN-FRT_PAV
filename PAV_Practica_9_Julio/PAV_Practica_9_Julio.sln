@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PAV_Practica_9_Julio", "PAV_Practica_9_Julio\PAV_Practica_9_Julio.csproj", "{709ABC34-3C74-4174-B6CD-68CF8E7D612B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{709ABC34-3C74-4174-B6CD-68CF8E7D612B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{709ABC34-3C74-4174-B6CD-68CF8E7D612B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{709ABC34-3C74-4174-B6CD-68CF8E7D612B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{709ABC34-3C74-4174-B6CD-68CF8E7D612B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B58EF1F0-684C-4A6B-95D5-416711D94726}
+	EndGlobalSection
+EndGlobal
